@@ -1,11 +1,11 @@
 -- +goose Up
 -- +goose StatementBegin
-CREATE USER ivan WITH ROLE planadmin;
-ALTER USER ivan WITH PASSWORD 'password';
-CREATE USER sophie WITH ROLE planmanager;
-ALTER USER sophie WITH PASSWORD 'password';
-CREATE USER kirill WITH ROLE planmanager;
-ALTER USER kirill WITH PASSWORD 'password';
+CREATE USER ivan WITH PASSWORD 'password';
+GRANT planadmin TO  ivan;
+CREATE USER sophie WITH PASSWORD 'password';
+GRANT planmanager TO  sophie;
+CREATE USER kirill WITH PASSWORD 'password';
+GRANT planmanager TO  kirill;
 
 INSERT INTO country_managers(username, country)
     VALUES ('sophie', 'US'),

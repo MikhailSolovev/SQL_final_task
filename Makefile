@@ -42,6 +42,12 @@ down-all: down remove-volumes
 remove-volumes:
 	docker volume rm --force sql_final_task_pg_data
 
+.PHONE: apply-python-scripts
+apply-python-scripts:
+	python3 start_planing.py
+	python3 change_plan.py
+	python3 accept_plan.py
+
 run-all: run
 	sleep 3
 	-make dump
